@@ -3,6 +3,20 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  function validateFormWithJS() {
+    const name = document.querySelector('#name').value
+    const rollNumber = document.querySelector('#rollNumber').value
+
+    if (!name) {
+      alert('Please enter your name.')
+      return false
+    }
+
+    if (rollNumber.length < 3) {
+      alert('Roll Number should be at least 3 digits long.')
+      return false
+    }
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -21,7 +35,7 @@ export default function Home() {
           <code className={styles.code}>pages/index.js</code>
         </p>
 
-        <div className={styles.grid}>
+        {/* <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
             <p>Find in-depth information about Next.js features and API.</p>
@@ -49,7 +63,34 @@ export default function Home() {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
+        </div> */}
+        <h1>Sign up form</h1>
+        <div className={styles.grid}>
+        
+        <div className='form_section'>
+        <form onsubmit="validateFormWithJS()">
+          
+                
+          <label>FirstName</label><br></br>
+          <input type="name" value="fname"></input><br></br>
+          <label>LastName</label><br></br>
+          <input type="" value="lname" placeholder='enter your last name' on></input><br></br>
+
+          <label>Email</label><br></br>
+          <input type="" value="email" placeholder='enter your  email id'></input><br></br>
+
+          <label>Contact</label><br></br>
+          <input type="" value="contact" placeholder='enter your contact '></input><br></br>
+
+          <button className='btn btn-primary' type='submit'>SignUp</button>
+
+
+          </form>
         </div>
+        </div>
+
+
+
       </main>
 
       <footer className={styles.footer}>
